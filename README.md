@@ -6,8 +6,8 @@ This program uses input.pde which helps with User Input
 
 [INPUT.PDE](http://ntci.on.ca/compsci/hef/ics3/ch1/1_4.html)
 
+***NOTE I HAVE CHANGED THE INPUT.PDE FILE, SO IT IS SUITABLE FOR MY PROGRAM!
+
 ### Status
 
-This PROJECT IS NOT COMPLETE!!!
-
-PLEASE NO SPAM OF ANY KIND!
+Documentation Coming Soon
