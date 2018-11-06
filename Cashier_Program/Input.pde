@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 
 String prompt(String s)
@@ -8,6 +9,11 @@ String prompt(String s)
       return null;
    println(entry);
    return entry;
+}
+
+
+int getOption(String message) {
+  return JOptionPane.showConfirmDialog(null, message);
 }
 
 String getString(String s)
@@ -43,4 +49,3 @@ char getChar(String s)
    else
       return '\n';
 }
-
