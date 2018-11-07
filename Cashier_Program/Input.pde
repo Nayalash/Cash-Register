@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 
 String prompt(String s)
@@ -11,7 +10,7 @@ String prompt(String s)
    return entry;
 }
 
-
+//OPTION PERSONALLY MADE FOR YES,NO, CANCEL
 int getOption(String message) {
   return JOptionPane.showConfirmDialog(null, message);
 }
