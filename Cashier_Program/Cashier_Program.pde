@@ -12,6 +12,7 @@ Program: Cashier Register Program
  Press 8 to go to the next customer.
  
  */
+ 
 //Declare all Image variables (Global)
 PImage logo;
 PImage cash;
