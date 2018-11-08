@@ -4,7 +4,8 @@ Program: Cashier Register Program
  Date: 30-Oct-2018
  Revision Date: 09-Nov-2018
  
- Program Description: This is a Cashier Program, foucusing on a simple UI. It will ask the User Items/Prices/Cash Given and display SubTotal, Total, Tax and Change Due. 
+ Program Description: This is a Cashier Program, foucusing on a simple UI. It will ask the User Items/Prices/Cash Given and 
+ display SubTotal, Total, Tax and Change Due based on  CASH OUT AMOUNT. 
  
  Controls:  
  Press 0 to end the program. 
@@ -12,50 +13,40 @@ Program: Cashier Register Program
  Press 8 to go to the next customer.
  
  */
- 
-//Declare all Image variables (Global)
+
 PImage logo;
 PImage cash;
 PImage end;
 PImage next;
-
-//Declare all Global Variables
 String itemName;
 Float itemPrice;
+Float transaction;
 int currentItemCounter;
 boolean continueAddingItems = true;
-String items[] = new String[1000]; //Setting a max limit for max items, as it is impossible to have unlimited spawning values in an array.
+
+String items[] = new String[1000]; //because impossible to have unlimited
 double total = 0;
 int counter = 1;
 
-//setup
 void setup() {
-  size(1000, 500);//screen size
+  size(1000, 500);
   logo = loadImage("cashlogoNEW.jpg");
   cash = loadImage("cashbutton.png");
   end = loadImage("endbutton.png");
   next = loadImage("nextbutton.png");
 }
 
-//draw (GRAPHICAL OUTPUT)
 void draw() {
-  //Spawn Images to The Graphical Output
   image(logo, 780, 20);
   image(cash, 770, 180); 
   image(end, 770, 280);
   image(next, 770, 380);
 
-  //If 0 is pressed program will stop
 
-  if (keyPressed) {
-    if (key == '0') {
-      exit();
-    }
-  }
 
   if (continueAddingItems) {
     counter = 1;
-    background(255, 0, 0); //background color
+    background(255, 0, 0);
 
     items[currentItemCounter] = addItem();
     currentItemCounter++;
@@ -66,16 +57,30 @@ void draw() {
         counter++;
       }
     }
-    int option = getOption("Would you like to add another item?"); //ADDING ANOTHER ITEM
+    int option = getOption("Would you like to add another item?");
     continueAddingItems = option==0 ? true : false;
-  } else { //Displaying The SUB TOTAL, TOTAL and TAX
+  } else {
     text("SubTotal : " + String.valueOf(String.format("%.2f", total)), 20, 50 * (counter + 1));
     text("Tax : " + String.format("%.2f", total * .13), 20, 50*(counter + 2));
     text("TOTAL WITH TAX : " + String.format("%.2f", total * .13 + total), 20, 50 * (counter + 3));
   }
 }
 
-//Defining the function that will retrieve user input and diplay it graphically.
+void keyPressed() {
+  if (key == '0') {
+    exit();
+  }
+
+  if (key == '9') {
+    transaction = getFloat("Type Cash Given");
+    text("Change : " + String.format("%.2f", transaction-(total * .13 + total)), 20, 50 * (counter + 4));
+  }
+  
+  if (key == '8') {
+    text("Press 0 than Press CTRL + R", 20, 50 * (counter + 5));
+  }
+}
+
 String addItem() {
   itemName =getString("Type Name of Item");
   itemPrice =getFloat("Type Price of Item");
