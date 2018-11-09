@@ -29,7 +29,7 @@ double total = 0;
 int counter = 1;
 
 void setup() {
-  size(1000, 500);
+  size(1000, 650);
   logo = loadImage("cashlogoNEW.jpg");
   cash = loadImage("cashbutton.png");
   end = loadImage("endbutton.png");
@@ -63,6 +63,8 @@ void draw() {
     text("SubTotal : " + String.valueOf(String.format("%.2f", total)), 20, 50 * (counter + 1));
     text("Tax : " + String.format("%.2f", total * .13), 20, 50*(counter + 2));
     text("TOTAL WITH TAX : " + String.format("%.2f", total * .13 + total), 20, 50 * (counter + 3));
+   
+    
   }
 }
 
@@ -73,11 +75,12 @@ void keyPressed() {
 
   if (key == '9') {
     transaction = getFloat("Type Cash Given");
-    text("Change : " + String.format("%.2f", transaction-(total * .13 + total)), 20, 50 * (counter + 4));
+    text("Change : " + String.format("%.2f", transaction-(total * .13 + total)), 20, 50 * (counter + 5));
+    text("Cash Given : " + String.valueOf(String.format("%.2f", transaction)), 20, 50 * (counter + 4));
   }
-  
+
   if (key == '8') {
-    text("Press 0 than Press CTRL + R", 20, 50 * (counter + 5));
+    text("Press 0 than Press CTRL + R", 20, 50 * (counter + 6));
   }
 }
 
